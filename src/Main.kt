@@ -27,6 +27,10 @@ fun main() {
     // 6
     println("Random string (5 chars): ${giveRandomString(5)}")
 
+    // 7
+    val duplicate = listOf(2,1,3,2,4,6,5,7,8,3,9)
+    println(findDuplicates(duplicate))
+
 }
 
 // 1. Write a function isPositive(number: Int): Boolean that returns true if number is positive.
@@ -83,4 +87,15 @@ val giveRandomString: (Int) -> String = { length ->
     (1..length)
         .map { ('a'..'z').random() }
         .joinToString("")
+}
+
+/*
+    7. Implement `fun <T> findDuplicates(list : List<T>) : List<T>`
+        a. returns elements that appear more than  once
+ */
+
+fun <T> findDuplicates(list: List<T>) : List<T>{
+    return list.groupBy { it }
+        .filter { it.value.size > 1 }
+        .flatMap { it.value.take(1) }
 }
