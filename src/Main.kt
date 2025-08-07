@@ -3,6 +3,10 @@
 fun main() {
     println(isPositive(1))
     println(isEven(4))
+    val list1 = (1..10).toList()
+    val list2 = ('A'..'J').toList()
+    println(getFirstElement(list1))
+    println(getFirstElement(list2))
 }
 
 // 1. Write a function isPositive(number: Int): Boolean that returns true if number is positive.
@@ -23,5 +27,9 @@ fun isEven(n: Int): Boolean = n % 2 == 0
     3. Write a generic function `getFirstElement<T>(list: List<T>) : T?`
         a. Returns the first element of a list or null if it's empty.
  */
+
+fun <T> getFirstElement(list: List<T>): T?{
+    return if (list.isNotEmpty()) list.first() else null
+}
 
 
