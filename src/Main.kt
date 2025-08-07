@@ -11,10 +11,13 @@ fun main() {
     println(getFirstElement(list2))
 
     val words = listOf("cat", "umbrella", "hat", "kangaroo")
-//    val longWord = (List<String>) -> List<String> = {}
 //    val longWords = words.filter { it.length > 4 }
-//    println(longWords)
     println(longWords(words))
+
+    repeatOperation(3) {
+        println("invoke block n times1")
+    }
+    repeatOperation(2, print)
 
 }
 
@@ -42,13 +45,25 @@ fun <T> getFirstElement(list: List<T>): T?{
 }
 
 /*
-    Use a lambda with filter to extract words longer than 4 letters
-        val words = listOf("cat", "umbrella", "hat", "kangaroo")
-        val longWords = // your filter here
-        println(longWords) // Output: ["umbrella", "kangaroo"]
+    4. Use a lambda with filter to extract words longer than 4 letters
+            val words = listOf("cat", "umbrella", "hat", "kangaroo")
+            val longWords = // your filter here
+            println(longWords) // Output: ["umbrella", "kangaroo"]
 */
 //val longWords = (List<String>) -> List<String>
-//val  longWords = {a: List<String> -> }
 val  longWords = {a: List<String> -> a.filter { it.length > 4 } }
+
+/*
+    5. Write a function `repeatOperation(n : Int, block : () → Unit)`
+        a. it should invoke `block` n times.
+ */
+
+fun repeatOperation(n: Int, block: () -> Unit){
+    for (i in 0..<n){
+        block()
+    }
+}
+
+val print = { println("invoke block n times2") }
 
 
