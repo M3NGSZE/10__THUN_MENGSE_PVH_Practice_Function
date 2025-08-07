@@ -2,11 +2,20 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
     println(isPositive(1))
+
     println(isEven(4))
+
     val list1 = (1..10).toList()
     val list2 = ('A'..'J').toList()
     println(getFirstElement(list1))
     println(getFirstElement(list2))
+
+    val words = listOf("cat", "umbrella", "hat", "kangaroo")
+//    val longWord = (List<String>) -> List<String> = {}
+//    val longWords = words.filter { it.length > 4 }
+//    println(longWords)
+    println(longWords(words))
+
 }
 
 // 1. Write a function isPositive(number: Int): Boolean that returns true if number is positive.
@@ -31,5 +40,15 @@ fun isEven(n: Int): Boolean = n % 2 == 0
 fun <T> getFirstElement(list: List<T>): T?{
     return if (list.isNotEmpty()) list.first() else null
 }
+
+/*
+    Use a lambda with filter to extract words longer than 4 letters
+        val words = listOf("cat", "umbrella", "hat", "kangaroo")
+        val longWords = // your filter here
+        println(longWords) // Output: ["umbrella", "kangaroo"]
+*/
+//val longWords = (List<String>) -> List<String>
+//val  longWords = {a: List<String> -> }
+val  longWords = {a: List<String> -> a.filter { it.length > 4 } }
 
 
