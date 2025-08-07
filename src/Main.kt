@@ -1,23 +1,31 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
+    // 1
     println(isPositive(1))
 
+    // 2
     println(isEven(4))
 
+    // 3
     val list1 = (1..10).toList()
     val list2 = ('A'..'J').toList()
     println(getFirstElement(list1))
     println(getFirstElement(list2))
 
+    // 4
     val words = listOf("cat", "umbrella", "hat", "kangaroo")
 //    val longWords = words.filter { it.length > 4 }
     println(longWords(words))
 
+    // 5
     repeatOperation(3) {
         println("invoke block n times1")
     }
-    repeatOperation(2, print)
+//    repeatOperation(2, print)
+
+    // 6
+    println("Random string (5 chars): ${giveRandomString(5)}")
 
 }
 
@@ -66,4 +74,13 @@ fun repeatOperation(n: Int, block: () -> Unit){
 
 val print = { println("invoke block n times2") }
 
+/*
+    6. Create a lambda that returns a random string of given length
+        a. use `(’a’..’z’).random()` and repeat logic
+ */
 
+val giveRandomString: (Int) -> String = { length ->
+    (1..length)
+        .map { ('a'..'z').random() }
+        .joinToString("")
+}
